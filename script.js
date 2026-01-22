@@ -1,5 +1,6 @@
 const myArray = [];
 
+/*
 myArray.push("Tiger");
 myArray.push("olifant")
 myArray.pop();
@@ -11,24 +12,35 @@ myArray.unshift("nissen")
 myArray.shift();
 
 console.log(myArray.toString());
+*/
 
 //
 //
+
+const textInput = document.querySelector("#textInput")
+const displayList = document.querySelector("#displayList");
 
 const addBack = document.querySelector("#addBack");
 addBack.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const textInput = document.querySelector("#textInput").value;
-  myArray.push(textInput);
+  // her sjekker vi om textinput er utfylt eller ikke //
+  if (!textInput.value == "") {
+    const textInputValue = textInput.value;
+  
+  myArray.push(textInputValue);
 
   //console.log(myArray);
 
-  const displayList = document.querySelector("#displayList");
   displayList.textContent = myArray.toString();
 
+  textInput.value = ""; 
+  } else {
+    console.log("noe gikk galt");
+  }
 
-})
+
+});
 
 const removeBack = document.querySelector("#removeBack");
 removeBack.addEventListener("click", function (event) {
@@ -38,7 +50,6 @@ removeBack.addEventListener("click", function (event) {
 
   //console.log(myArray);
 
-  const displayList = document.querySelector("#displayList");
   displayList.textContent = myArray.toString();
   
 
@@ -46,17 +57,23 @@ removeBack.addEventListener("click", function (event) {
 
 const addFront = document.querySelector("#addFront");
 addFront.addEventListener("click", function (event) {
+
   event.preventDefault();
 
-  const textInput = document.querySelector("#textInput").value;
-  myArray.unshift(textInput);
+  if (!textInput == "") {
+  const textInputValue = textInput.value;
 
-  //console.log(myArray);
+  myArray.unshift(textInputValue);
 
-  const displayList = document.querySelector("#displayList");
   displayList.textContent = myArray.toString();
 
-})
+  textInput.value = "";
+  } else {
+    console.log("noe gikk galt foran");
+  }
+  
+});
+  
 
 const removeFront = document.querySelector("#removeFront");
 removeFront.addEventListener("click", function (event) {
